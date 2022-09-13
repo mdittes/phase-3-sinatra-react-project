@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_13_175049) do
+ActiveRecord::Schema.define(version: 2022_09_13_195815) do
+
+  create_table "life_expectancies", force: :cascade do |t|
+    t.string "state_name"
+    t.float "life_expectancy"
+  end
 
   create_table "living_costs", force: :cascade do |t|
     t.string "state_name"
@@ -34,6 +39,7 @@ ActiveRecord::Schema.define(version: 2022_09_13_175049) do
     t.integer "temperature_id"
     t.integer "marijuana_law_id"
     t.integer "living_cost_id"
+    t.integer "life_expectancy_id"
   end
 
   create_table "temperatures", force: :cascade do |t|
