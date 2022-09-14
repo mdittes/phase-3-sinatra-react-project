@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_13_195815) do
+ActiveRecord::Schema.define(version: 2022_09_14_135128) do
 
   create_table "life_expectancies", force: :cascade do |t|
     t.string "state_name"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2022_09_13_195815) do
     t.float "temperature"
     t.string "temp_scale"
     t.integer "ranking"
+    t.string "state_name"
   end
 
 end
