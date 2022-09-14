@@ -14,10 +14,19 @@ class State < ActiveRecord::Base
     end
 
     def self.get_all
-        {Temperature: Temperature.all,
+        {State: State.all,
+        Temperature: Temperature.all,
         LivingCost: LivingCost.all,
         LifeExpectancy: LifeExpectancy.all,
         MarijuanaLaw: MarijuanaLaw.all}
+    end
+
+    def list_all
+        "#{self.name} has an average temperature of #{self.temperature.temperature}°F, an average life expectancy of #{self.life_expectancy.life_expectancy} years, an average cost of living of #{self.living_cost.cost_index} (compared to a baseline of 100), and the status of marijuana legality is #{self.marijuana_law.legal_weed_status}."
+    end
+
+    def list_rankings
+        "#{self.name} ranks at position #{self.temperature.ranking}/50 in Average Yearly Temperature, #{self.life_expectancy.id}/50 in Life Expectancy, and #{self.living_cost.id}/50 in Cost of Living"
     end
 
 end

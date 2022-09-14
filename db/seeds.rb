@@ -6,6 +6,7 @@ MarijuanaLaw.destroy_all
 LivingCost.destroy_all
 LifeExpectancy.destroy_all
 
+
 alabama = State.create(name: "Alabama", temperature_id: 7, 
     marijuana_law_id: 1, living_cost_id: 4, life_expectancy_id: 48)
 alaska = State.create(name: "Alaska", temperature_id: 50, 
@@ -762,6 +763,7 @@ LifeExpectancy.create(state_name: "Kentucky", life_expectancy: 75.1000)
 LifeExpectancy.create(state_name: "Alabama", life_expectancy: 74.9000)
 LifeExpectancy.create(state_name: "West Virginia", life_expectancy: 74.9000)
 LifeExpectancy.create(state_name: "Mississippi", life_expectancy: 74.6000)
+
 
 
 

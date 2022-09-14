@@ -8,8 +8,18 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/states" do
-    states = State.all
+    state = State.all
+    state.to_json
+  end
+
+  get "/states/:id" do
+    states = State.find(params[:id]).list_all
     states.to_json
+  end
+
+  get "/rankings/:id" do
+    ranks = State.find(params[:id]).list_rankings
+    ranks.to_json
   end
 
   get "/temperatures" do
@@ -18,7 +28,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/living_costs" do 
-    living_costs = State.all.map {|el| el.living_cost_index}
+    living_costs = LivingCost.all
     living_costs.to_json
   end
 
