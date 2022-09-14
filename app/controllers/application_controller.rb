@@ -3,7 +3,8 @@ class ApplicationController < Sinatra::Base
   
   # Add your routes here
   get "/" do
-    { message: "Good luck with your project!" }.to_json
+    states = State.all.get_all
+    states.to_json
   end
 
   get "/states" do
@@ -17,7 +18,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/living_costs" do 
-    living_costs = LivingCost.all
+    living_costs = State.all.map {|el| el.living_cost_index}
     living_costs.to_json
   end
 

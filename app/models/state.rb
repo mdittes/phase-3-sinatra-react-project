@@ -8,4 +8,16 @@ class State < ActiveRecord::Base
         self.temperature.ranking
     end
 
+    def living_cost_index
+        index = self.living_cost.cost_index
+        "#{self.name}: #{index}"
+    end
+
+    def self.get_all
+        {Temperature: Temperature.all,
+        LivingCost: LivingCost.all,
+        LifeExpectancy: LifeExpectancy.all,
+        MarijuanaLaw: MarijuanaLaw.all}
+    end
+
 end
