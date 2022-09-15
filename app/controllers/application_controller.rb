@@ -7,13 +7,18 @@ class ApplicationController < Sinatra::Base
     states.to_json
   end
 
+  # get "/states" do
+  #   state = State.all
+  #   state.to_json
+  # end
+
   get "/states" do
-    state = State.all
-    state.to_json
+    all = State.list_all
+    all.to_json
   end
 
   get "/states/:id" do
-    states = State.find(params[:id]).list_all
+    states = State.find(params[:id]).list_info
     states.to_json
   end
 

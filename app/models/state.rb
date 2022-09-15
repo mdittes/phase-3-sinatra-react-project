@@ -3,6 +3,7 @@ class State < ActiveRecord::Base
     belongs_to :marijuana_law
     belongs_to :living_cost
     belongs_to :life_expectancy
+    has_many :notes
 
     def temp_ranking
         self.temperature.ranking
@@ -21,8 +22,12 @@ class State < ActiveRecord::Base
         MarijuanaLaw: MarijuanaLaw.all}
     end
 
-    def list_all
+    def list_info
         "#{self.name} has an average temperature of #{self.temperature.temperature}°F, an average life expectancy of #{self.life_expectancy.life_expectancy} years, an average cost of living of #{self.living_cost.cost_index} (compared to a baseline of 100), and the status of marijuana legality is #{self.marijuana_law.legal_weed_status}."
+    end
+
+    def self.list_all
+        State.all.map {|el| el.list_info}
     end
 
     def list_rankings

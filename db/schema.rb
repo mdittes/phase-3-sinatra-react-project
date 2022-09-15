@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_14_135128) do
+ActiveRecord::Schema.define(version: 2022_09_15_135333) do
 
   create_table "life_expectancies", force: :cascade do |t|
     t.string "state_name"
@@ -32,6 +32,11 @@ ActiveRecord::Schema.define(version: 2022_09_14_135128) do
     t.string "legal_weed_status"
     t.boolean "medicinal_weed_status"
     t.boolean "decriminalized_weed_status"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string "comment"
+    t.integer "state_id"
   end
 
   create_table "states", force: :cascade do |t|
