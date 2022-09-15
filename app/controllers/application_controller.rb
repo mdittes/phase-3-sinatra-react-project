@@ -27,6 +27,33 @@ class ApplicationController < Sinatra::Base
     ranks.to_json
   end
 
+  get "/notes" do
+    notes = Note.all
+    notes.to_json
+  end
+
+  delete "/notes/:id" do
+    note = Note.find(params[:id])
+    note.destroy
+    note.to_json
+  end
+
+  post "/notes" do
+    note = Note.create(
+      comment: params[:comment],
+      state_id: params[:state_id]
+    )
+    note.to_json
+  end
+
+  patch "/notes/:id" do
+    note = Note.find(params[:id])
+    note.update(
+      comment: params[:comment]
+    )
+    note.to_json
+  end
+
   get "/temperatures" do
     temps = Temperature.all
     temps.to_json

@@ -22,8 +22,12 @@ class State < ActiveRecord::Base
         MarijuanaLaw: MarijuanaLaw.all}
     end
 
+    def state_name
+        "#{self.name}".upcase
+    end
+
     def list_info
-        "#{self.name} has an average temperature of #{self.temperature.temperature}°F, an average life expectancy of #{self.life_expectancy.life_expectancy} years, an average cost of living of #{self.living_cost.cost_index} (compared to a baseline of 100), and the status of marijuana legality is #{self.marijuana_law.legal_weed_status}."
+        "#{self.state_name}: Average Temperature: #{self.temperature.temperature}°F | Average Life Expectancy: #{self.life_expectancy.life_expectancy} years | Average Cost of Living: #{self.living_cost.cost_index} (compared to a baseline of 100) | Marijuana Legality: #{self.marijuana_law.legal_weed_status}"
     end
 
     def self.list_all
@@ -31,7 +35,7 @@ class State < ActiveRecord::Base
     end
 
     def list_rankings
-        "#{self.name} ranks at position #{self.temperature.ranking}/50 in Average Yearly Temperature, #{self.life_expectancy.id}/50 in Life Expectancy, and #{self.living_cost.id}/50 in Cost of Living"
+        "#{self.state_name} ranks #{self.temperature.ranking}/50 in Average Yearly Temperature, #{self.life_expectancy.id}/50 in Life Expectancy, and #{self.living_cost.id}/50 in Cost of Living"
     end
 
     def self.list_all_rankings
