@@ -34,4 +34,8 @@ class State < ActiveRecord::Base
         "#{self.name} ranks at position #{self.temperature.ranking}/50 in Average Yearly Temperature, #{self.life_expectancy.id}/50 in Life Expectancy, and #{self.living_cost.id}/50 in Cost of Living"
     end
 
+    def self.list_all_rankings
+        State.all.map {|el| el.list_rankings}
+    end
+
 end

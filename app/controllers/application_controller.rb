@@ -7,11 +7,6 @@ class ApplicationController < Sinatra::Base
     states.to_json
   end
 
-  # get "/states" do
-  #   state = State.all
-  #   state.to_json
-  # end
-
   get "/states" do
     all = State.list_all
     all.to_json
@@ -20,6 +15,11 @@ class ApplicationController < Sinatra::Base
   get "/states/:id" do
     states = State.find(params[:id]).list_info
     states.to_json
+  end
+
+  get "/rankings" do
+    all = State.list_all_rankings
+    all.to_json
   end
 
   get "/rankings/:id" do
