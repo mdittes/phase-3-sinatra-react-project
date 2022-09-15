@@ -19,7 +19,8 @@ class State < ActiveRecord::Base
         Temperature: Temperature.all,
         LivingCost: LivingCost.all,
         LifeExpectancy: LifeExpectancy.all,
-        MarijuanaLaw: MarijuanaLaw.all}
+        MarijuanaLaw: MarijuanaLaw.all,
+        Note: Note.all}
     end
 
     def state_name

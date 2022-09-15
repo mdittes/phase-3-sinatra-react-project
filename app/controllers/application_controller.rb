@@ -14,7 +14,7 @@ class ApplicationController < Sinatra::Base
 
   get "/states/:id" do
     states = State.find(params[:id]).list_info
-    states.to_json
+    states.notes.to_json
   end
 
   get "/rankings" do
@@ -30,6 +30,11 @@ class ApplicationController < Sinatra::Base
   get "/notes" do
     notes = Note.all
     notes.to_json
+  end
+  
+  get "/notes/:id" do
+    state = State.find(params[:id])
+    state.notes.to_json
   end
 
   delete "/notes/:id" do
