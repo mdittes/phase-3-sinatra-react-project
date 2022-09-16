@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/states" do
-    all = State.list_all
+    all = State.all
     all.to_json
   end
 
@@ -29,7 +29,17 @@ class ApplicationController < Sinatra::Base
 
   get "/notes" do
     notes = Note.all
-    notes.to_json
+    note_array = []
+    for i in notes do
+      note = {
+        id: i.id,
+        state: i.state_name,
+        comment: i.comment,
+        state_id: i.state_id
+      }
+      note_array << note
+    end
+    note_array.to_json
   end
   
   get "/notes/:id" do
@@ -46,7 +56,7 @@ class ApplicationController < Sinatra::Base
   post "/notes" do
     note = Note.create(
       comment: params[:comment],
-      # state_id: params[:state_id]
+      state_id: params[:state_id]
     )
     note.to_json
   end

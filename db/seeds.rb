@@ -766,11 +766,11 @@ LifeExpectancy.create(state_name: "West Virginia", life_expectancy: 74.9000)
 LifeExpectancy.create(state_name: "Mississippi", life_expectancy: 74.6000)
 
 
-Note.create(comment: "Too rural")
-Note.create(comment: "Too cold, but legal weed")
-Note.create(comment: "Dry heat, no thanks")
-Note.create(comment: "Pretty nifty")
-Note.create(comment: "Don't hate it...")
+Note.create(comment: "Too rural", state_id: State.all.sample.id)
+Note.create(comment: "Too cold, but legal weed " , state_id: State.all.sample.id)
+Note.create(comment: "Dry heat, no thanks " , state_id: State.all.sample.id)
+Note.create(comment: "Pretty nifty " , state_id: State.all.sample.id)
+Note.create(comment: "Don't hate it... " , state_id: State.all.sample.id)
 
 
 
