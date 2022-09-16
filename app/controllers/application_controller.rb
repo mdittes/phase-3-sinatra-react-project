@@ -46,7 +46,7 @@ class ApplicationController < Sinatra::Base
   post "/notes" do
     note = Note.create(
       comment: params[:comment],
-      state_id: params[:state_id]
+      # state_id: params[:state_id]
     )
     note.to_json
   end
